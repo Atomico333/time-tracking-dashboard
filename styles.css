@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+}
+
+button{
+    all: unset;
+}
+:root{
+    --Blue: hsl(246, 80%, 60%);
+    --ightred: hsl(15, 100%, 70%);
+    --Softblue: hsl(195, 74%, 62%);
+    --Lightred: hsl(348, 100%, 68%);
+    --Limegreen: hsl(145, 58%, 55%);
+    --Violet: hsl(264, 64%, 52%);
+    --Softorange: hsl(43, 84%, 65%);
+    --Verydarkblue: hsl(226, 43%, 10%);
+    --Darkblue: hsl(235, 46%, 20%);
+    --Desaturatedblue: hsl(235, 45%, 61%);
+    --PaleBlue: hsl(236, 100%, 87%);
+}
+
+body{
+    display: flex;
+    background-color: var(--Verydarkblue);
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+    font-family: 'Rubik';
+    color: var(--PaleBlue);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 3rem auto;
+}
+
+.profile-card{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.profile{
+    background-color: var(--Blue);
+    border-radius: 1rem;
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+    gap: 1rem;
+    z-index: 2;   
+}
+
+.profile img{
+    display: block;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    border: solid 4px white;
+}
+
+.profile p{
+    line-height: 2rem;
+    
+}
+.profile span{
+    font-size: 1.5rem;
+    color:rgba(255, 255, 255, 0.938);
+    font-weight: 300;
+}
+
+.filters{
+    background-color: var(--Darkblue);
+    padding: 1.5rem;
+    position: absolute;
+    top: 90%;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    border-radius: 0 0 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2.2rem;
+}
+
+button:hover , button:focus{
+    color:white;
+}
+
+.container > div:nth-child(2){
+    margin-top: 7rem;
+}
+.cards{
+    display: flex;
+    gap:4rem;
+    flex-direction: column;
+}
+.card{
+    opacity: 0; 
+    transform: translateY(20px); 
+    position: relative;
+}
+
+.card.active {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.info{
+    background-color: var(--Darkblue);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: .7rem;
+    z-index: 4;
+}
+
+.info h2{
+    color: rgba(255, 255, 255, 0.918);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.hours{
+    font-size: 1.8rem;
+    color:rgba(255, 255, 255, 0.959);
+    font-weight: 300;
+}
+
+.record{
+    text-align: end;
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.boton{
+    display: flex;
+    font-size: 2rem;
+    justify-content: end; ;
+}
+
+.boton button{
+    content:"";
+    width: 2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-image: url(./images/icon-ellipsis.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.boton button:hover , .buton button:focus{
+   background-image: url('data:image/svg+xml,<svg width="21" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="white" fill-rule="evenodd"/></svg>')
+}
+
+.buttonWhite {
+    color: white;
+}
+
+.top-decoration{
+    position:absolute;
+    background-repeat: no-repeat;
+    content: "";
+    height: 4.3rem;
+    background-size: 4.5rem;
+    background-position: 96% -10px;
+    padding-inline: 1rem;
+    left: 0;
+    right: 0;
+    bottom: 4.8em;
+    z-index: -1;
+    border-radius: 1rem;
+}
+
+.top-decoration img{
+    height: 4.5rem;
+}
+
+.Work{
+    background-image: url(./images/icon-work.svg);
+    background-color: var(--ightred);
+}
+
+.Play{
+    background-color: var(--Softblue);
+    background-image: url(./images/icon-play.svg);
+}
+
+.Study{
+    background-color: var(--Lightred);
+    background-image: url(./images/icon-study.svg);
+}
+
+.Exercise{
+    background-color: var(--Limegreen);
+    background-image: url(./images/icon-exercise.svg);
+}
+
+.SelfCare{
+    background-color: var(--Softorange);
+    background-image: url(./images/icon-self-care.svg);
+}
+
+.Social{
+    background-color: var(--Violet);
+    background-image: url(./images/icon-social.svg);
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+.card:nth-child(1) {
+    animation-delay: 0s; 
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s; 
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.4s; 
+}
+
+.card:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.card:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.card:nth-child(6){
+    animation-delay: 1s;
+}
+
+@media screen and (min-width:768px) {
+    body{
+        height: 100vh;
+    }
+    .container{
+        display: grid;
+        grid-template-columns: auto;  
+        grid-template-rows: 1fr;
+        height: 550px;
+        max-width: 1170px;
+        gap: 1.8rem;
+    }
+
+    .cards {
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 862px;
+    }
+
+    .container > div:nth-child(2){
+        margin-top: 0;
+    }
+    .profile-card{
+        max-height: 550px;
+        width: 276px;
+
+    }
+  
+    .profile{
+        height: 55%;
+        z-index: 2;
+        flex-direction: column;
+        align-items:start;
+        gap: 2rem;
+
+    }
+    .profile img{
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    .profile span{
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+
+    .nombre::after{
+        content: "\A";
+        white-space: pre;
+    }
+
+    .filters{
+        z-index: 1;
+        top: 60%;
+        bottom: 0;
+        flex-direction: column;
+        padding-top:4rem;
+        padding-bottom: 2rem;
+        padding-inline: 2rem;
+        align-items: start;
+        gap:1rem
+    }
+    .cards{
+        gap:1.8rem;
+        align-items: end;
+        max-height: 550px;
+    }
+
+    .card{
+        margin:0;
+        height: 100%;
+        display: flex;
+    }
+
+    .info{
+        height: 65%;
+        width: 100%;
+        gap: 0;
+        align-self: end;
+    }
+
+    .top-decoration{
+        top:0
+    }
+    .hours{
+        grid-column: 1/3;
+        font-size: 3.6rem;
+        line-height: 5rem;
+        align-self: end;
+    }
+    .record{
+        grid-column: 1/3;
+        justify-self: start;
+    }
+    .info h2{
+        margin-right: 2rem;
+    }
+}
